@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Pay</title>
+    <link rel="stylesheet" href="">
+    <style>
+        /* Basic Layout and Style */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4285f4;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .pay-button {
+            background-color: #1a73e8;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .pay-button:hover {
+            background-color: #0069c0;
+        }
+
+        .mic-button {
+            background-color: #4285f4;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .mic-button:hover {
+            background-color: #0069c0;
+        }
+
+        .hover-text {
+            color: #1a73e8;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Google Pay</h1>
+</header>
+
+<div class="container">
+    <div class="title">Payment Form</div>
+
+    <!-- Payment Form -->
+    <div>
+        <input type="text" class="input-field" placeholder="Enter UPI ID" id="upi-id" required><br>
+        <input type="number" class="input-field" placeholder="Enter Amount" id="amount" required><br>
+        <div class="hover-text" id="amount-text">Amount: ₹500</div><br>
+        <button class="pay-button" id="pay-now-button">Pay Now</button><br>
+
+        <!-- Microphone Button -->
+        <button class="mic-button" onclick="startVoiceInput()">🎤 Use Voice Input</button>
+    </div>
+</div>
+
+<script>
+    // Function to speak text using the Web Speech API
+    function speakText(text) {
+        const speech = new SpeechSynthesisUtterance(text);
+        window.speechSynthesis.speak(speech);
+    }
+
+    // Event listener for mouse hover on the amount text
+    document.getElementById('amount-text').addEventListener('mouseenter', function() {
+        speakText(this.innerText);  
+    });
+
+    // Voice Input for UPI ID and Amount
+    function startVoiceInput() {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        
+        recognition.onstart = function() {
+            console.log('Voice recognition started. Speak now.');
+        };
+
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript;
+            const upiIdField = document.getElementById('upi-id');
+            const amountField = document.getElementById('amount');
+
+            
+            if (/\d+/.test(transcript)) {
+                const amount = transcript.match(/\d+/)[0];
+                amountField.value = amount;
+                speakText(`Amount set to ₹${amount}`);
+            } else {
+                upiIdField.value = transcript;
+                speakText(`UPI ID set to ${transcript}`);
+            }
+
+            // Check if the user said "Pay" to trigger payment
+            if (transcript.toLowerCase().includes('send')) {
+                // Trigger Payment Success Message
+                paymentSuccess();
+            }
+        };
+
+        recognition.onerror = function(event) {
+            console.log('Voice recognition error: ' + event.error);
+        };
+
+        recognition.start();
+    }
+
+    // Function to handle payment via fetch
+    function startPayment() {
+        fetch('/payment', { method: 'POST' })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);  // Show the result from Flask server
+            });
+    }
+
+    // Function to handle payment success and show success message
+    function paymentSuccess() {
+        const upiId = document.getElementById('upi-id').value;
+        const amount = document.getElementById('amount').value;
+
+        // Display success message both in text and speech
+        alert(`Payment of ₹${amount} was successful to ${upiId}`);
+        speakText(`Payment of ₹${amount} was successful to ${upiId}`);
+
+        // Play success tone
+        playSuccessTone();
+    }
+
+    // Function to play a success tone after payment
+    function playSuccessTone() {
+        const successTone = new Audio('static/success-tone.mp3'); // Example file path
+        successTone.play();
+    }
+
+    // Automatically trigger voice input when clicking "Pay Now"
+    document.getElementById('pay-now-button').addEventListener('click', function() {
+        startVoiceInput();  
+        setTimeout(paymentSuccess, 3000); // Trigger payment success after processing voice input
+    });
+</script>
+
+</body>
+</html>

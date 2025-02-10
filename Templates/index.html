@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Pay UI Design</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #5f5d5d;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #4285f4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .profile-row {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap; /* Ensures responsiveness */
+      margin: 20px 0;
+    }
+    .user-card {
+      background: linear-gradient(135deg, #b6b6b6, #81c784);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+      width: 150px;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      flex: 1 1 calc(20% - 20px); /* Adjust width to 20% for 5 items per row */
+      box-sizing: border-box; /* Prevents overflow */
+    }
+    .user-card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      border: 4px solid white;
+    }
+    .user-card p {
+      margin: 10px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Pay-Free</h1>
+  </div>
+
+  <!-- User Cards Section -->
+  <div class="container">
+    <h2 style="color: #333;">Send Money To</h2>
+    <div class="profile-row">
+      <!-- User 1 -->
+      <a href="/pay" class="user-card" onmouseover="speakName('John Doe')">
+        <img src="https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8" alt="User 1">
+        <p>John Doe</p>
+      </a>
+
+      <!-- User 2 -->
+      <a href="/pay" class="user-card" onmouseover="speakName('Jane Smith')">
+        <img src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg" alt="User 2">
+        <p>Jane Smith</p>
+      </a>
+
+      <!-- User 3 -->
+      <a href="/pay" class="user-card" onmouseover="speakName('Alice Lee')">
+        <img src="https://t4.ftcdn.net/jpg/06/08/55/73/360_F_608557356_ELcD2pwQO9pduTRL30umabzgJoQn5fnd.jpg" alt="User 3">
+        <p>Alice Lee</p>
+      </a>
+
+      <!-- User 4 -->
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://www.shutterstock.com/image-photo/serious-indian-guy-casual-blue-260nw-2429711541.jpg" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+      <!-- User 5 -->
+      <a href="/pay" class="user-card" onmouseover="speakName('Charlie Davis')">
+        <img src="https://cdn.pixabay.com/photo/2022/09/08/15/16/cute-7441224_1280.jpg" alt="User 5">
+        <p>Charlie Davis</p>
+      </a>
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/female-user-image-illustration-download-in-svg-png-gif-file-formats--person-girl-business-pack-illustrations-6515859.png?f=webp" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://i.pinimg.com/736x/23/ee/9e/23ee9e9d176a1002d7e4efc91311c8dc.jpg" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/female-user-image-illustration-download-in-svg-png-gif-file-formats--person-girl-business-pack-illustrations-6515859.png?f=webp" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://cdn.pixabay.com/photo/2022/09/08/15/16/cute-7441224_1280.jpg" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://i.pinimg.com/736x/23/ee/9e/23ee9e9d176a1002d7e4efc91311c8dc.jpg" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/woman-profile-illustration-download-in-svg-png-gif-file-formats--young-female-girl-avatar-portraits-pack-people-illustrations-6590622.png?f=webp" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZkhJylWvJgj2g1J_O2lybZ0caR33T85SAuQ&s" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://d3kqdc25i4tl0t.cloudfront.net/articles/content/92_408268_151204profilepicture_hero.jpg" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/woman-profile-illustration-download-in-svg-png-gif-file-formats--young-female-girl-avatar-portraits-pack-people-illustrations-6590622.png?f=webp" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+
+      <a href="/pay" class="user-card" onmouseover="speakName('Bob Brown')">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/female-user-image-illustration-download-in-svg-png-gif-file-formats--person-girl-business-pack-illustrations-6515859.png?f=webp" alt="User 4">
+        <p>Bob Brown</p>
+      </a>
+
+
+
+      
+    </div>
+  </div>
+
+  <!-- Recent Transactions Section -->
+  <div style="padding: 20px;">
+    <h2 style="color: #333;">Recent Transactions</h2>
+    <div style="background-color: #fafafa; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px;">
+      
+      <!-- Transaction 1 -->
+      <div class="transaction" style="transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; justify-content: space-between; align-items: center; padding: 15px; margin-bottom: 15px; background: linear-gradient(135deg, #eee2b9 10%, #fda085 100%); border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;">
+        <div style="display: flex; align-items: center;">
+            <img 
+            src="https://d3kqdc25i4tl0t.cloudfront.net/articles/content/92_408268_151204profilepicture_hero.jpg" 
+            alt="User 1" 
+            style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-right: 10px;">
+          <div>
+            <p style="font-size: 16px; font-weight: bold; color: #333;">John Doe</p>
+            <small style="font-size: 12px; color: #888;">2 hours ago</small>
+          </div>
+        </div>
+        <p style="font-size: 16px; font-weight: bold; color: #d32f2f;">-$50.00</p>
+      </div>
+  
+      <!-- Transaction 2 -->
+      <div class="transaction" style="transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; justify-content: space-between; align-items: center; padding: 15px; margin-bottom: 15px; background: linear-gradient(135deg, #abdbad 10%, #388e3c 100%); border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;">
+        <div style="display: flex; align-items: center;">
+            <img 
+            src="https://i.pinimg.com/236x/85/59/09/855909df65727e5c7ba5e11a8c45849a.jpg" 
+            alt="User 1" 
+            style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-right: 10px;">
+          <div>
+            <p style="font-size: 16px; font-weight: bold; color: #333;">Jane Smith</p>
+            <small style="font-size: 12px; color: #888;">5 hours ago</small>
+          </div>
+        </div>
+        <p style="font-size: 16px; font-weight: bold; color: #e6e7e6;">+$30.00</p>
+      </div>
+      <div class="transaction" style="transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; justify-content: space-between; align-items: center; padding: 15px; margin-bottom: 15px; background: linear-gradient(135deg, #cac581 10%, #ec8e4f 100%); border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;">
+        <div style="display: flex; align-items: center;">
+            <img 
+            src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" 
+            alt="User 1" 
+            style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-right: 10px;">
+          <div>
+            <p style="font-size: 16px; font-weight: bold; color: #333;">Jane Smith</p>
+            <small style="font-size: 12px; color: #888;">5 hours ago</small>
+          </div>
+        </div>
+        <p style="font-size: 16px; font-weight: bold; color: #e6e7e6;">+$30.00</p>
+      </div>
+      <div class="transaction" style="transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; justify-content: space-between; align-items: center; padding: 15px; margin-bottom: 15px; background: linear-gradient(135deg, #8ec591 10%, #388e3c 100%); border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;">
+        <div style="display: flex; align-items: center;">
+            <img 
+            src="https://d3kqdc25i4tl0t.cloudfront.net/articles/content/92_408268_151204profilepicture_hero.jpg" 
+            alt="User 1" 
+            style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-right: 10px;">
+          <div>
+            <p style="font-size: 16px; font-weight: bold; color: #333;">Jane Smith</p>
+            <small style="font-size: 12px; color: #888;">5 hours ago</small>
+          </div>
+        </div>
+        <p style="font-size: 16px; font-weight: bold; color: #e6e7e6;">+$30.00</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Adding animations via CSS -->
+  <style>
+    .transaction:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  
+  <script>
+    // Function to speak the user's name using the Web Speech API
+    function speakName(name) {
+      // Check if the browser supports the Web Speech API
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(name);
+        utterance.lang = 'en-US'; // Set the language
+        utterance.rate = 1; // Speed of speech (1 is normal)
+        utterance.pitch = 1; // Pitch of speech (1 is normal)
+        window.speechSynthesis.speak(utterance); // Speak the name
+      } else {
+        console.error('Web Speech API is not supported in this browser.');
+      }
+    }
+  </script>
+
+</body>
+</html>
